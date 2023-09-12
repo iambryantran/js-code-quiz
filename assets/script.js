@@ -1,5 +1,9 @@
 var time = 0;
 var score = 0;
+var wins = 0;
+var losses = 0;
+
+document.getElementById("timer").textContent = time;
 
 function timer(){
     time = 100;
@@ -8,11 +12,17 @@ function timer(){
     };  
 };
 
-function startQuiz(){
+// Make a timer that counts down using setInterval
+var timerInterval = setInterval(timer, 1000); 
 
+function startGame(){
 };
 
-document.getElementById("timer").textContent = time;
+function endGame(){
+};
+
+function saveScore(){
+};
 
 // Question Array
 var questions = [
@@ -32,3 +42,14 @@ function wrongAnswer(){
 function correctAnswer(){
     score++;
 };
+
+// Page Loads
+// Displays View Highscores, Timer, and Start Button (init function?)
+// Start Button clicked, timer starts, first question appears
+// Player chooses answer
+// Display correct or incorrect
+// If answer is correct, score increases, next question appears
+// If answer is incorrect, time decreases, next question appears
+// Game ends when all questions are answered or timer reaches 0
+// Player enters initials and score is saved
+// Highscores page appears with list of scores
