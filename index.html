@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
     <link href="./assets/style.css" rel="stylesheet">
     <title>JavaScript Quiz</title>
 </head>
-<body>
-    <header>
-        <p>View Highscores</p>
-        <p>Time: <span id="timer">0</span></p>
+<body class="container">
+    <header class="row justify-content-between d-flex align-items-center">
+        <p class="col-2">View Highscores</p>
+        <p class="col-1">Time: <span id="timer">0</span></p>
     </header>
-    <main id="playarea">
-        <p id="question">What about a longer Question?</p>
-        <section id="answers">
-            <button id="answer1">TEXTTEXTTEXTTEXT</button>
-            <button id="answer2">TEXTTEXTTEXTTEXT</button>
-            <button id="answer3">TEXTTEXTTEXTTEXT</button>
-            <button id="answer4">TEXTTEXTTEXTTEXT</button>
+    <main id="playarea" class="row vw-30">
+        <p id="question" class="col-12 text-center">What about a longer Question?</p>
+        <section id="answers" class="col-12">
+            <button id="answer1" class="col-12">TEXTTEXTTEXTTEXT</button>
+            <button id="answer2" class="col-12">TEXTTEXTTEXTTEXT</button>
+            <button id="answer3" class="col-12">TEXTTEXTTEXTTEXT</button>
+            <button id="answer4" class="col-12">TEXTTEXTTEXTTEXT</button>
         </section>
-        <p id="result">Correct!</p>
+        <section id="start-container" class="col-12">
+            <button id="start-btn" class="">START</button>
+        </section>
+        <section id="end-container" class="col-12">
+            <p id="end-text" class="col-12">TEST</p>
+        </section>
+        <p id="result" class="col-12">Correct!</p>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
