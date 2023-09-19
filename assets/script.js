@@ -4,6 +4,11 @@ var questionCount = 0;
 var submitBtn = document.getElementById("submit-button");
 var scoreBtn = document.getElementById("scoresBtn");
 var highscoreList = document.getElementById("score-list");
+var answer1 = document.getElementById("answer1");
+var answer2 = document.getElementById("answer2");
+var answer3 = document.getElementById("answer3");
+var answer4 = document.getElementById("answer4");
+var timeCountdown;
 
 document.getElementById("timer").textContent = time;
 
@@ -28,14 +33,13 @@ function init(){
 
 function timer(){
     time = 50;
-    var timeCountdown = setInterval(function(){
+    timeCountdown = setInterval(function(){
         time--;
         document.getElementById("timer").textContent = time;
         if(time <=0) {
-            clearInterval(timeCountdown);
             endGame();
         }
-    },1000);
+    }, 1000);
 };
 
 function startGame(){
@@ -61,56 +65,36 @@ function displayQnA(){
 
         document.getElementById("question").textContent = questions[questionCount].question;
 
-        var answer1 = document.getElementById("answer1");
         answer1.textContent = questions[questionCount].answersArr[0];
 
-        var answer2 = document.getElementById("answer2");
         answer2.textContent = questions[questionCount].answersArr[1];
 
-        var answer3 = document.getElementById("answer3");
         answer3.textContent = questions[questionCount].answersArr[2];
 
-        var answer4 = document.getElementById("answer4");
         answer4.textContent = questions[questionCount].answersArr[3];
 
-        console.log(questionCount);
-
-        // var answerContainer = document.getElementById("answers");
-        // answerContainer.addEventListener("click", function(event) {
-        //     var element = event.target;
-        //     questionCount++;
-        //     if (element.matches(".answerBtn")) {
-        //         var choice = element.getAttribute("id");
-        //         if (choice === questions[questionCount].correct) {
-        //             displayQnA();
-        //             } else {
-        //                 time = time - 5;
-        //                 displayQnA();
-        //             }
-        //         }
-
-
-        var correctAnswer = questions[questionCount].correct;
-
-        answer1.addEventListener('click', function() {checkAnswer(answer1, correctAnswer)});
-        answer2.addEventListener('click', function() {checkAnswer(answer2, correctAnswer)});
-        answer3.addEventListener('click', function() {checkAnswer(answer3, correctAnswer)});
-        answer4.addEventListener('click', function() {checkAnswer(answer4, correctAnswer)});
-        questionCount++;
-    }  
+    }
 };
 
+answer1.addEventListener('click', checkAnswer);
+answer2.addEventListener('click', checkAnswer);
+answer3.addEventListener('click', checkAnswer);
+answer4.addEventListener('click', checkAnswer);
+
+
 // Function that reduces time when wrong answer is selected and 
-function checkAnswer(element, correctAnswer){
-    if (element.id != correctAnswer){
+function checkAnswer(event){
+    if (event.target.id != questions[questionCount].correct){
         time = time - 5;
     };
+    questionCount++;
     displayQnA();
 };
 
 // End Game needs to remove question, answers, and results.  Should display the end container and update score.
 
 function endGame(){
+    clearInterval(timeCountdown);
     score = time;
     document.getElementById("question").style.display = "none";
     document.getElementById("answers").style.display = "none";
