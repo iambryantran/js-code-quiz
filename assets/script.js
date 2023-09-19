@@ -131,6 +131,8 @@ function displayScores(){
     document.getElementById("answers").style.display = "none";
     document.getElementById("result").style.display = "none";
     document.getElementById("start-container").style.display = "none"
+    document.getElementById("end-container").style.display = "none";
+    document.getElementById("score-div").style.display = "none";
     for (var i = 0; i < scoreArr.length; i++){
         var listItem = document.createElement("li")
         listItem.textContent = "Name: " + scoreArr[i].name + " " + "Score: " + scoreArr[i].userScore
